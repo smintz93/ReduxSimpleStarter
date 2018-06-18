@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SearchBar from './components/search_bar'
 
 const API_KEY = 'AIzaSyBZLh5e7Av3cJVozAGKqXrsxp8W4UmA1hc'
 // Create a new component 
@@ -8,7 +9,9 @@ const API_KEY = 'AIzaSyBZLh5e7Av3cJVozAGKqXrsxp8W4UmA1hc'
 const App = () => {
 	//jsx
 	// webpack babel translates jsx so browser can read it. 
-	return <div>Hi</div>
+	return <div>
+			<SearchBar />
+		</div>
 }
 
 
