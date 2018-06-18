@@ -1,8 +1,12 @@
-import React from 'react';
+// functional (dumb) component or class based on component 
+import React, { Component } from 'react';
 
-const SearchBar = () => {
-	return <input />
-};
+	class SearchBar extends Component {
+		render() {
+			return  <input />
+
+		}
+	}
 
 export default SearchBar;
 
