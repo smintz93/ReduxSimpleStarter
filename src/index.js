@@ -19,4 +19,4 @@ const App = () => {
 
 // making an instance of a component
 // rendering it to the div container in index.html 
-ReactDOM.render(<App />, document.querySelector('.container')
+ReactDOM.render(<App />, document.querySelector('.container'));
