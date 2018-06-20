@@ -3,28 +3,32 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 
 import SearchBar from './components/search_bar'
+import VideoList from './components/video_list'
 
 const API_KEY = 'AIzaSyBZLh5e7Av3cJVozAGKqXrsxp8W4UmA1hc'
 
 
-
 class App extends Component  {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = { videos: [] };
 
-		YTSearch({key: API_KEY, term: 'surfboards'}, (data) => {
-			console.log(data, "<--- this is the data from the api call");
-			this.setState({ videos: data })
+		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+			console.log(videos, "<--- these are videos from the api call");
+			this.setState({ videos });
+			// can use to condense to just { vidoes: videos } bc name is the same
 		});
 	}
 	render() {
 	//jsx
 	// webpack babel translates jsx so browser can read it. 
-	return <div>
-			<SearchBar />
-		</div>
+		return (
+			<div>
+				<SearchBar />
+				<VideoList videos={this.state.videos} />
+			</div>
+		)		
 	}	
 }
 
