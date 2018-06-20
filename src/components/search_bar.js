@@ -11,8 +11,11 @@ import React, { Component } from 'react';
 		render() {
 			return (
 				<div>
-					<input onChange={ event => this.setState({term: event.target.value})} />
-					Value of the input: {this.state.term}
+					<input 
+					// need this because the user needs to actually change the value of input
+					// onChange doesn't do that
+					value={this.state.term}
+					onChange={ event => this.setState({term: event.target.value})} />
 				</div>
 			);
 			
