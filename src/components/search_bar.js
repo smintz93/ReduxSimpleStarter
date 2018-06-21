@@ -12,16 +12,18 @@ import React, { Component } from 'react';
 			return (
 				<div className="search-bar">
 					<input 
-					// need this because the user needs to actually change the value of input
-					// onChange doesn't do that
+			
 					value={this.state.term}
-					onChange={ event => this.setState({term: event.target.value})} />
+					onChange={ event => this.onInputChange(event.target.value)} />
 				</div>
 			);
 			
 		}
 
-
+		onInputChange = (term) => {
+			this.setState({term});
+			this.props.onSearchTermChange(term)
+		}
 
 	}
 

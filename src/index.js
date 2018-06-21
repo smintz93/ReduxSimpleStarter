@@ -18,7 +18,11 @@ class App extends Component  {
 			selectedVideo: null
 		};
 
-		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+		this.videoSearch('surfboards')
+	}
+
+	videoSearch = (term) => {
+		YTSearch({key: API_KEY, term: term}, (videos) => {
 			console.log(videos, "<--- these are videos from the api call");
 			this.setState({ 
 				videos: videos,
@@ -26,13 +30,14 @@ class App extends Component  {
 			});
 			// can use to condense to just { vidoes: videos } bc name is the same
 		});
+		
 	}
 	render() {
 	//jsx
 	// webpack babel translates jsx so browser can read it. 
 		return (
 			<div>
-				<SearchBar />
+				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList
 					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
