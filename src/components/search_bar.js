@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 		}
 		render() {
 			return (
-				<div>
+				<div className="search-bar">
 					<input 
 					// need this because the user needs to actually change the value of input
 					// onChange doesn't do that
